@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Starting build for static website..."
+  build:
+    commands:
+      - echo "Uploading files to S3..."
+      - aws s3 cp index.html s3://website-hosting-cicd/
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: output
